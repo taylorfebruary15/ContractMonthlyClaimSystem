@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ContractMonthlyClaimSystem.Models.Claim>
+@{
+    ViewData["Title"] = "My Claims";
+}
+<h2>My Claims (Sample)</h2>
+<table class="claims-table">
+    <thead>
+        <tr><th>Month</th><th>Year</th><th>Hours</th><th>Rate</th><th>Total</th><th>Status</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Month</td>
+                <td>@c.Year</td>
+                <td>@c.HoursWorked</td>
+                <td>@c.HourlyRate</td>
+                <td>@c.TotalAmount</td>
+                <td>@c.Status</td>
+                <td>
+                    <a href="/Claim/Details/@c.ClaimId">Details</a> |
+                    <a href="/Claim/Track/@c.ClaimId">Track</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
